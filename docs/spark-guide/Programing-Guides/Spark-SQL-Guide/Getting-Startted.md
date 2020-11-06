@@ -1,27 +1,27 @@
 # 入门
 
 - [起点：SparkSession](http://spark.apache.org/docs/latest/sql-getting-started.html#starting-point-sparksession)
-- [创建数据框](http://spark.apache.org/docs/latest/sql-getting-started.html#creating-dataframes)
+- [创建DataFrames](http://spark.apache.org/docs/latest/sql-getting-started.html#creating-dataframes)
 - [无类型的数据集操作（也称为DataFrame操作）](http://spark.apache.org/docs/latest/sql-getting-started.html#untyped-dataset-operations-aka-dataframe-operations)
 - [以编程方式运行SQL查询](http://spark.apache.org/docs/latest/sql-getting-started.html#running-sql-queries-programmatically)
 - [全局临时视图](http://spark.apache.org/docs/latest/sql-getting-started.html#global-temporary-view)
 - [创建数据集](http://spark.apache.org/docs/latest/sql-getting-started.html#creating-datasets)
 - 与RDD互操作
-  - [使用反射推断架构](http://spark.apache.org/docs/latest/sql-getting-started.html#inferring-the-schema-using-reflection)
-  - [以编程方式指定架构](http://spark.apache.org/docs/latest/sql-getting-started.html#programmatically-specifying-the-schema)
+  - [使用反射推断结构](http://spark.apache.org/docs/latest/sql-getting-started.html#inferring-the-schema-using-reflection)
+  - [以编程方式指定结构](http://spark.apache.org/docs/latest/sql-getting-started.html#programmatically-specifying-the-schema)
 - [标量函数](http://spark.apache.org/docs/latest/sql-getting-started.html#scalar-functions)
 - [汇总功能](http://spark.apache.org/docs/latest/sql-getting-started.html#aggregate-functions)
 
 ## 起点：SparkSession
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_0)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_0)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_0)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_0)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_0)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_0)
 - [**[R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_0)
 
 [`SparkSession`](http://spark.apache.org/docs/latest/api/scala/org/apache/spark/sql/SparkSession.html)类是Spark中所有功能的入口点。要创建一个基本的`SparkSession`，只需使用`SparkSession.builder()`：
 
-```
+```scala
 import org.apache.spark.sql.SparkSession
 
 val spark = SparkSession
@@ -38,18 +38,18 @@ import spark.implicits._
 
 `SparkSession`Spark 2.0中的内置支持Hive功能，包括使用HiveQL编写查询，访问Hive UDF以及从Hive表读取数据的功能。要使用这些功能，您不需要现有的Hive设置。
 
-## 创建数据框
+## 创建 DataFrames
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_1)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_1)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_1)
-- [**[R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_1)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_1)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_1)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_1)
+- [**R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_1) 
 
 使用`SparkSession`，应用程序可以从[现有的`RDD`](http://spark.apache.org/docs/latest/sql-getting-started.html#interoperating-with-rdds)，Hive表的或[Spark数据源](http://spark.apache.org/docs/latest/sql-data-sources.html)创建DataFrame 。
 
 例如，以下内容基于JSON文件的内容创建一个DataFrame：
 
-```
+```scala
 val df = spark.read.json("examples/src/main/resources/people.json")
 
 // Displays the content of the DataFrame to stdout
@@ -69,16 +69,16 @@ df.show()
 
 DataFrames为[Scala](http://spark.apache.org/docs/latest/api/scala/org/apache/spark/sql/Dataset.html)，[Java](http://spark.apache.org/docs/latest/api/java/index.html?org/apache/spark/sql/Dataset.html)，[Python](http://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrame)和[R中的](http://spark.apache.org/docs/latest/api/R/SparkDataFrame.html)结构化数据操作提供了一种特定于域的语言。
 
-如上所述，在Spark 2.0中，DataFrames只是`Row`Scala和Java API中的的数据集。与强类型的Scala / Java数据集附带的“类型转换”相反，这些操作也称为“非类型转换”。
+如上所述，在Spark 2.0中，DataFrames只是`Row`Scala和Java API中的的Dataset 。与强类型的Scala / Java数据集附带的“类型转换”相反，这些操作也称为“非类型转换”。
 
 这里我们提供一些使用数据集进行结构化数据处理的基本示例：
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_2)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_2)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_2)
-- [**[R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_2)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_2)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_2)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_2)
+- [**R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_2)
 
-```
+```scala
 // This import is needed to use the $-notation
 import spark.implicits._
 // Print the schema in a tree format
@@ -134,14 +134,14 @@ df.groupBy("age").count().show()
 
 ## 以编程方式运行SQL查询
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_3)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_3)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_3)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_3)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_3)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_3)
 - [**[R**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_r_3)
 
 上的`sql`函数`SparkSession`使应用程序能够以编程方式运行SQL查询，并以形式返回结果`DataFrame`。
 
-```
+```scala
 // Register the DataFrame as a SQL temporary view
 df.createOrReplaceTempView("people")
 
@@ -162,12 +162,12 @@ sqlDF.show()
 
 Spark SQL中的临时视图是会话作用域的，如果创建它的会话终止，它将消失。如果您希望拥有一个在所有会话之间共享的临时视图，并且在Spark应用程序终止之前一直保持活动状态，则可以创建全局临时视图。全局临时视图与系统保留的数据库相关联`global_temp`，我们必须使用限定名称来引用它，例如`SELECT * FROM global_temp.view1`。
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_4)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_4)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_4)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_4)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_4)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_4)
 - [**的SQL**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_SQL_4)
 
-```
+```scala
 // Register the DataFrame as a global temporary view
 df.createGlobalTempView("people")
 
@@ -198,10 +198,10 @@ spark.newSession().sql("SELECT * FROM global_temp.people").show()
 
 数据集与RDD相似，但是它们不是使用Java序列化或Kryo，而是使用专用的[Encoder](http://spark.apache.org/docs/latest/api/scala/org/apache/spark/sql/Encoder.html)对对象进行序列化以进行网络处理或传输。虽然编码器和标准序列化都负责将对象转换为字节，但是编码器是动态生成的代码，并使用一种格式，该格式允许Spark执行许多操作，如过滤，排序和哈希处理，而无需将字节反序列化为对象。
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_5)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_5)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_5)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_5)
 
-```
+```scala
 case class Person(name: String, age: Long)
 
 // Encoders are created for case classes
@@ -240,13 +240,13 @@ Spark SQL支持两种将现有RDD转换为数据集的方法。第一种方法�
 
 ### 使用反射推断架构
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_6)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_6)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_6)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_6)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_6)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_6)
 
 Spark SQL的Scala接口支持将包含案例类的RDD自动转换为DataFrame。案例类定义表的架构。案例类的参数名称使用反射读取，并成为列的名称。Case类也可以嵌套或包含`Seq`s或`Array`s之类的复杂类型。可以将该RDD隐式转换为DataFrame，然后将其注册为表。可以在后续的SQL语句中使用表。
 
-```
+```scala
 // For implicit conversions from RDDs to DataFrames
 import spark.implicits._
 
@@ -292,19 +292,19 @@ teenagersDF.map(teenager => teenager.getValuesMap[Any](List("name", "age"))).col
 
 ### 以编程方式指定架构
 
-- [**斯卡拉**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_7)
-- [**爪哇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_7)
-- [**蟒蛇**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_7)
+- [**Scala**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_scala_7)
+- [**Java**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_java_7)
+- [**Python**](http://spark.apache.org/docs/latest/sql-getting-started.html#tab_python_7)
 
-如果无法提前定义案例类（例如，记录的结构编码为字符串，或者将解析文本数据集，并且针对不同的用户对字段进行不同的投影），`DataFrame`则可以通过三个步骤以编程方式创建a 。
+如果无法提前定义案例类（例如，记录的结构编码为字符串，或者将解析文本数据集，并且针对不同的用户对字段进行不同的投影），则可以通过三个步骤以编程方式创建DataFrame 。
 
-1. `Row`从原始RDD创建一个的RDD；
+1. `Row`从原始RDD创建一个的RDD； 
 2. 在步骤1中创建的RDD中，创建`StructType`与`Row`s的结构匹配 的模式。
 3. `Row`通过`createDataFrame`提供的方法将架构应用于的RDD `SparkSession`。
 
 例如：
 
-```
+```scala
 import org.apache.spark.sql.Row
 
 import org.apache.spark.sql.types._
