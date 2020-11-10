@@ -1,16 +1,19 @@
 <p align="center">
-<img src="./media/pictures/logo.jpg" width="100" height="100"/>
+<img src="static/pictures/logo.jpg" width="100" height="100"/>
 </p>
 
-> 大数据常用技术总结
->
-> Java后端开发知识点及常见后端面试题
 
-- 计算机基础知识
-- 后端开发常用开源框架
-- 大数据常用技术
-- 大厂面试题
+> 最新Spark版本中文编程指南！
+
+- Quick Start
+- RDDs,Accumulators,Broadcast Vars
+- SQL,DataFrams,and Datasets
+- Structured Streaming
+- Spark Streaming(DStreams)
+- MLlib(Machine Learning)
+- GraphX(Graph Processing)
+- SparkR(R on Spark)
 
 [常用资源](https://shimo.im/docs/MuiACIg1HlYfVxrj/)
 [GitHub](<https://github.com/Lcsbs/SparkGuide-cn>)
-[开始阅读](#java)
+[开始阅读](#spark编程中文指南)

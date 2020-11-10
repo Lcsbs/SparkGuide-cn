@@ -1,59 +1,6 @@
+[TOC]
+
 # RDD编程指南
-
-- [总览](http://spark.apache.org/docs/latest/rdd-programming-guide.html#overview)  
-
-- [与Spark链接](http://spark.apache.org/docs/latest/rdd-programming-guide.html#linking-with-spark)  
-
-- 初始化Spark
-
-  - [使用Shell](http://spark.apache.org/docs/latest/rdd-programming-guide.html#using-the-shell)  
-
-- 弹性分布式数据集（RDD）
-
-  - [并行集合](http://spark.apache.org/docs/latest/rdd-programming-guide.html#parallelized-collections)  
-
-  - [外部数据集](http://spark.apache.org/docs/latest/rdd-programming-guide.html#external-datasets)  
-
-  - RDD操作
-
-    - [基本](http://spark.apache.org/docs/latest/rdd-programming-guide.html#basics)  
-
-    - [将函数传递给Spark](http://spark.apache.org/docs/latest/rdd-programming-guide.html#passing-functions-to-spark)  
-
-    - 了解闭包
-
-      - [例](http://spark.apache.org/docs/latest/rdd-programming-guide.html#example)  
-- [本地与集群模式](http://spark.apache.org/docs/latest/rdd-programming-guide.html#local-vs-cluster-modes)  
-      - [RDD的打印元素](http://spark.apache.org/docs/latest/rdd-programming-guide.html#printing-elements-of-an-rdd)  
-      
-    - [使用键值对](http://spark.apache.org/docs/latest/rdd-programming-guide.html#working-with-key-value-pairs)  
-
-    - [转变](http://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations)  
-
-    - [动作](http://spark.apache.org/docs/latest/rdd-programming-guide.html#actions)  
-
-    - Shuffle 操作
-
-      - [背景](http://spark.apache.org/docs/latest/rdd-programming-guide.html#background)  
-  - [性能影响](http://spark.apache.org/docs/latest/rdd-programming-guide.html#performance-impact)  
-    
-  - RDD持久性
-
-    - [选择哪个存储级别？](http://spark.apache.org/docs/latest/rdd-programming-guide.html#which-storage-level-to-choose)  
-  - [移除缓存数据](http://spark.apache.org/docs/latest/rdd-programming-guide.html#removing-data)  
-  
-- 共享变量
-
-  - [广播变量](http://spark.apache.org/docs/latest/rdd-programming-guide.html#broadcast-variables)  
-  - [累加器](http://spark.apache.org/docs/latest/rdd-programming-guide.html#accumulators)  
-
-- [部署到集群](http://spark.apache.org/docs/latest/rdd-programming-guide.html#deploying-to-a-cluster)  
-
-- [从Java / Scala启动Spark作业](http://spark.apache.org/docs/latest/rdd-programming-guide.html#launching-spark-jobs-from-java--scala)  
-
-- [单元测试](http://spark.apache.org/docs/latest/rdd-programming-guide.html#unit-testing)  
-
-- [从这往哪儿走](http://spark.apache.org/docs/latest/rdd-programming-guide.html#where-to-go-from-here)  
 
 # 总览
 
